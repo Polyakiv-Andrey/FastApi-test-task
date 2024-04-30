@@ -8,7 +8,7 @@ from src.database import Base
 class User(Base):
 
     name: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
-    username = Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
+    username: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
     hashed_password: Mapped[bytes] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
     is_superuser: Mapped[bool] = mapped_column(default=False, nullable=False)
