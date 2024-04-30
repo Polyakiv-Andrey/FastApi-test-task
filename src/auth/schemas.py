@@ -11,3 +11,7 @@ class UserRegistrationsSchema(BaseModel):
 class JWTTokens(BaseModel):
     access_token: str
     refresh_token: str
+
+
+class AccessToken(BaseModel):
+    access_token: str
