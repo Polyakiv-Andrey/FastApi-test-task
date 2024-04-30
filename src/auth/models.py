@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.database import Base
 
@@ -13,6 +13,7 @@ class User(Base):
     is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
     is_superuser: Mapped[bool] = mapped_column(default=False, nullable=False)
     data_created: Mapped[datetime] = mapped_column(default=datetime.utcnow)
+    check = relationship("Check", back_populates="creator")
 
     def __repr__(self) -> str:
         return self.username
