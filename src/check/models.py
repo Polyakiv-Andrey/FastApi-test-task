@@ -17,6 +17,10 @@ class Check(Base):
     product = relationship("Product", back_populates="check")
     payment = relationship("Payment", back_populates="check")
 
+    @property
+    def total_amount(self):
+        return sum(p.amount * p.price for p in self.product)
+
 
 class Payment(Base):
     TYPE = Literal["cash", "cashless"]
